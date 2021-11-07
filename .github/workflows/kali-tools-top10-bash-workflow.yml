@@ -1,0 +1,110 @@
+name: "kali-tools-top10 CI workflow"
+
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month 
+
+
+jobs:
+
+  ubuntu-latest-job:
+    name: "kali-tools-top10 ubuntu latest"
+    runs-on: ubuntu-latest
+    env:
+      distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
+      version: "latest"
+      name: "kali/kali-tools-top10"
+      dockerfilename: "Dockerfile.kalilinux.kali-tools-top10"
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "docker build kali linux"
+      run: |
+        # destroyed afterwards (use --rm )
+        # all subsequent Dockerfile commands generate new images and the cache is not used
+        sudo docker build --no-cache --rm  -t ${name}:${version} . --file dockerfiles/${dockerfilename} 
+        docker image ls
+        docker image history ${name}:${version}
+        docker system df -v               
+        docker image inspect ${name}:${version}  
+        docker container ls -a
+
+
+                         
+
+  ubuntu-2004-job:
+    name: "nxlog ubuntu  20.04"
+    runs-on: ubuntu-20.04
+    env:
+      distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
+      version: "latest"
+      name: "kali/kali-tools-top10"
+      dockerfilename: "Dockerfile.kalilinux.kali-tools-top10"    
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "docker build kali linux"
+      run: |
+        # destroyed afterwards (use --rm )
+        # all subsequent Dockerfile commands generate new images and the cache is not used
+        sudo docker build --no-cache --rm  -t ${name}:${version} . --file dockerfiles/${dockerfilename} 
+        docker image ls
+        docker image history ${name}:${version}
+        docker system df -v               
+        docker image inspect ${name}:${version}  
+        docker container ls -a
+        
+
+
+  ubuntu-1804-job:
+    name: "nxlog ubuntu-18.04"
+    runs-on: ubuntu-18.04
+    env:
+      distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
+      version: "latest"
+      name: "kali/kali-tools-top10"
+      dockerfilename: "Dockerfile.kalilinux.kali-tools-top10"    
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch    
+    - name: "docker build kali linux"
+      run: |
+        # destroyed afterwards (use --rm )
+        # all subsequent Dockerfile commands generate new images and the cache is not used
+        sudo docker build --no-cache --rm  -t ${name}:${version} . --file dockerfiles/${dockerfilename} 
+        docker image ls
+        docker image history ${name}:${version}
+        docker system df -v               
+        docker image inspect ${name}:${version}  
+        docker container ls -a
+
+
+
+
