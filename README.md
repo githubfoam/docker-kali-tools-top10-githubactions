@@ -1,5 +1,6 @@
 # docker-kali-tools-top10-githubactions
 
+[![kali-tools-top10 CI workflow](https://github.com/githubfoam/docker-kali-tools-top10-githubactions/actions/workflows/kali-tools-top10-bash-workflow.yml/badge.svg?branch=main)](https://github.com/githubfoam/docker-kali-tools-top10-githubactions/actions/workflows/kali-tools-top10-bash-workflow.yml)  
 ~~~
 https://www.kali.org/blog/kali-linux-metapackages/
 https://www.kali.org/docs/general-use/metapackages/
