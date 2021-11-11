@@ -11,4 +11,15 @@ $ docker pull kalilinux/kali-rolling
 $ docker run --tty --interactive kalilinux/kali-rolling /bin/bash
 https://www.kali.org/docs/containers/using-kali-docker-images/
 
+kali-tools-top10
+  Depends: aircrack-ng
+  Depends: burpsuite
+  Depends: crackmapexec
+  Depends: hydra
+  Depends: john
+  Depends: metasploit-framework
+  Depends: nmap
+  Depends: responder
+  Depends: sqlmap
+  Depends: wireshark
 ~~~

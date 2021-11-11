@@ -44,7 +44,7 @@ jobs:
                          
 
   ubuntu-2004-job:
-    name: "nxlog ubuntu  20.04"
+    name: "kali-tools-top10 ubuntu  20.04"
     runs-on: ubuntu-20.04
     env:
       distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
@@ -76,7 +76,7 @@ jobs:
 
 
   ubuntu-1804-job:
-    name: "nxlog ubuntu-18.04"
+    name: "kali-tools-top10ubuntu-18.04"
     runs-on: ubuntu-18.04
     env:
       distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
